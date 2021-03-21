@@ -3,11 +3,17 @@
 #include <unistd.h>
 
 int main() {
+    size_t y;
+    size_t x;
     initscr();
     noecho();
-    mvprintw(0, 0, "Hello World!");
-    refresh();
-    sleep(1);
     curs_set(false);
+    for (size_t i = 0; ; ++i) {
+        clear();
+        getmaxyx(stdscr, y, x);
+        mvprintw(i % y, i % x, "Hello World!");
+        refresh();
+        usleep(30000);
+    }
     endwin();
 }
