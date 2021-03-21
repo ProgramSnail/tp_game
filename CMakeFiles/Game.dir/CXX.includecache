@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/dragon/Projects/tp/tp_game/main.cpp
+/home/gnom/Code/Mipt/tp/tp_game/main.cpp
 curses.h
 -
 cstdlib

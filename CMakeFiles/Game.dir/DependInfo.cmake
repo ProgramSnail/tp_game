@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/dragon/Projects/tp/tp_game/main.cpp" "/home/dragon/Projects/tp/tp_game/CMakeFiles/Game.dir/main.cpp.o"
+  "/home/gnom/Code/Mipt/tp/tp_game/main.cpp" "/home/gnom/Code/Mipt/tp/tp_game/CMakeFiles/Game.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
