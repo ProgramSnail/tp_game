@@ -1,5 +1,6 @@
 #include <cstdint>
-#include <curses.h>
+
+#pragma ONCE
 
 namespace draw {
 
@@ -11,6 +12,7 @@ namespace draw {
         player2,
         player3,
         neutral,
+        damaged,
         enviroment
     };
 
@@ -22,8 +24,6 @@ namespace draw {
         mountain = '^',
         unit = '#'
     };
-
-    const uint32_t STEP_DELAY_USEC = 30000;
 
     void begin();
 
