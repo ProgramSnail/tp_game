@@ -14,6 +14,10 @@ namespace init {
         input::begin();
     }
 
+    bool stop() {
+        return input::stop();
+    }
+
     void step() {
         draw::step();
         usleep(STEP_DELAY_USEC);
