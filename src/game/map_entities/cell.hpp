@@ -1,4 +1,4 @@
-#pragma ONCE
+#pragma once
 
 namespace map {
     enum CellType { // needed to choose final types

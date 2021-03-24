@@ -1,4 +1,4 @@
-#pragma ONCE
+#pragma once
 
 namespace unit {
     struct MemoryElem {

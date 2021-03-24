@@ -1,26 +1,20 @@
 #include <utility>
 #include <cstdint>
 #include "cell.hpp"
-#include "../unit/unit.hpp"
 
-#pragma ONCE
+#pragma once
 
 namespace map {
-    class UnitObj {
+    class UnitObj { // may be useless 
     private:
-        Unit* unit;
-        std::pair<int32_t, int32_t> pos;
-        std::pair<int32_t, int32_t> size;
+        using Coord = std::pair<int32_t, int32_t>;
+        Coord pos;
+        Coord size;
         CellType cellType;      
     public:
-        UnitObj(Unit* unit) : unit(unit) {
+        UnitObj(const Coord& pos, const Coord& size, const CellType& cellType) :
+            pos(pos), size(size), cellType(cellType) {
 
-        }
-        void updateValues() {
-            // from unit size, pos
-        }
-        void updatePosition() {
-            // from unit position
         }
         void updateAll() {
 

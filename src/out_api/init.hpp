@@ -1,6 +1,6 @@
 #include <cstdint>
 
-#pragma ONCE
+#pragma once
 
 namespace init {
 

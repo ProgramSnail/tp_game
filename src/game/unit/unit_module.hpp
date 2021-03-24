@@ -1,6 +1,6 @@
 // #include "unit.hpp" // ??
 
-#pragma ONCE
+#pragma once
 
 namespace unit {
     class Module {
