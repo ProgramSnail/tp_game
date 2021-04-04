@@ -4,8 +4,11 @@
 
 namespace draw {
     void initColorPairs() {
-        init_pair(ColorScheme::simple, COLOR_BLACK, COLOR_WHITE);
-        init_pair(ColorScheme::active, COLOR_WHITE, COLOR_BLACK);
+        init_pair(ColorScheme::blank, COLOR_BLACK, COLOR_WHITE);
+        init_pair(ColorScheme::map_simple, COLOR_BLACK, COLOR_WHITE);
+        init_pair(ColorScheme::map_active, COLOR_WHITE, COLOR_BLACK);
+        init_pair(ColorScheme::menu_simple, COLOR_BLACK, COLOR_WHITE);
+        init_pair(ColorScheme::menu_active, COLOR_WHITE, COLOR_BLACK);
         init_pair(ColorScheme::player0, COLOR_BLACK, COLOR_RED);
         init_pair(ColorScheme::player1, COLOR_BLACK, COLOR_BLUE);
         init_pair(ColorScheme::player2, COLOR_BLACK, COLOR_MAGENTA);

@@ -6,20 +6,24 @@ namespace draw {
 
     enum ColorScheme {
         simple,
-        active,
+        map_simple,
+        map_active,
+        menu_simple,
+        menu_active,
         player0,
         player1,
         player2,
         player3,
         neutral,
         damaged,
-        enviroment
+        enviroment,
     };
 
     enum Cell {
         blank = ' ',
-        menu_h = '-',
-        menu_v = '|',
+        menu_hb = '-',
+        menu_vb = '|',
+        menu_c = ' ',
         field = '.',
         mountain = '^',
         unit = '#'
