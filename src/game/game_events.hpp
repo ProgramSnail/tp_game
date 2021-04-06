@@ -1,4 +1,4 @@
-#include <set>
+#include <vector>
 #include <functional>
 #include <string>
 #include <map>
@@ -56,8 +56,8 @@ namespace events {
         Event(const EventId& id, const EventData& data) :
             id(id), data(data) {}
 
-        bool isId(const EventId& eId) const {
-            return id == eId; 
+        const EventId& getEventId() const {
+            return id; 
         }
 
         EventData& getData() {
@@ -72,35 +72,55 @@ namespace events {
     class EventHandler {
     private:
         std::function<void(const EventData&)> handler;
+        
+        static size_t lastId;
+        
+        size_t id;
 
         EventId eventId;
     public:
         EventHandler(std::function<void(const EventData&)> handler,
-            const EventId& eventId) : handler(handler), eventId(eventId) {}
+            const EventId& eventId) : handler(handler), eventId(eventId) {
+            id = lastId;
+            ++lastId;
+        }
             
-        bool handleEvent(const Event& event) {
-            if (event.isId(eventId)) {
-                handler(event.getData());
-                return true;
-            }
-            return false;
+        void handleEvent(const Event& event) {
+            handler(event.getData());
+        }
+        
+        size_t getId() const {
+            return id;
+        }
+        
+        const EventId& getEventId() const {
+            return eventId;
         }
     };
 
     class EventCenter {
     private:
-        std::set<EventHandler> handlers;
+        std::map<EventId, std::vector<EventHandler>> handlers;
     public:
         void addEventHandler(const EventHandler& handler) {
-            handlers.insert(handler);
+            handlers[handler.getEventId()].push_back(handler);
         }
 
         void removeEventHandler(const EventHandler& handler) {
-            handlers.erase(handler);
+            std::vector<EventHandler>& v = handlers[handler.getEventId()];
+            size_t id = handler.getId();
+            for (size_t i = 0; i < v.size(); ++i) {
+                if (v[i].getId() == id) {
+                    if (i + 1 != v.size()) {
+                        std::swap(v[i], v.back());
+                    }
+                    v.pop_back();
+                }
+            }
         }
 
         void invokeEvent(const Event& event) {
-            for (auto handler : handlers) {
+            for (auto& handler : handlers[event.getEventId()]) { // is it really work ??
                 handler.handleEvent(event);
             }
         }

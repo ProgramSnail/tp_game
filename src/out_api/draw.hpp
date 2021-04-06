@@ -3,6 +3,7 @@
 #pragma once
 
 namespace draw {
+    using std::size_t;
 
     enum ColorScheme {
         simple,
@@ -37,10 +38,10 @@ namespace draw {
 
     void clearAll();
 
-    void drawCh(uint32_t x, uint32_t y,
+    void drawCh(size_t x, size_t y,
         Cell cell, ColorScheme colorScheme = ColorScheme::simple);
 
     // void setxy(uint32_t x, uint32_t y);
 
-    void getSize(uint32_t& x, uint32_t& y);
+    void getSize(size_t& x, size_t& y);
 }

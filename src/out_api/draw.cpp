@@ -4,7 +4,7 @@
 
 namespace draw {
     void initColorPairs() {
-        init_pair(ColorScheme::blank, COLOR_BLACK, COLOR_WHITE);
+        init_pair(ColorScheme::simple, COLOR_BLACK, COLOR_WHITE);
         init_pair(ColorScheme::map_simple, COLOR_BLACK, COLOR_WHITE);
         init_pair(ColorScheme::map_active, COLOR_WHITE, COLOR_BLACK);
         init_pair(ColorScheme::menu_simple, COLOR_BLACK, COLOR_WHITE);
@@ -33,14 +33,14 @@ namespace draw {
         clear();
     }
 
-    void drawCh(uint32_t x, uint32_t y,
+    void drawCh(size_t x, size_t y,
         Cell cell, ColorScheme colorScheme) {
         attron(COLOR_PAIR(colorScheme));
         mvaddch(y, x, cell);
         attroff(COLOR_PAIR(colorScheme));
     }
 
-    void getSize(uint32_t& x, uint32_t& y) {
+    void getSize(size_t& x, size_t& y) { // is it work ??
         getmaxyx(stdscr, y, x);
     }
 }
