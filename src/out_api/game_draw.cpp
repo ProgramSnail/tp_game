@@ -23,6 +23,7 @@ namespace game_draw {
     
     void drawMenu(std::pair<size_t, size_t> start, std::pair<size_t, size_t> end) {
         
+        
     }
     
     void drawMap(std::pair<size_t, size_t> start, std::pair<size_t, size_t> end) {
