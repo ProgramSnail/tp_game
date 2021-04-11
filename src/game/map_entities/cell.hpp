@@ -1,7 +1,7 @@
 #pragma once
 
 namespace map {
-    enum class CellType { // needed to choose final types
+    enum class CellType {
         ctNone,
         ctUnit,
         ctWeapon,
@@ -18,7 +18,7 @@ namespace map {
     };
 
     struct Cell {
-        CellType type;
-        // int ??speed??; // speed when move inside
+        CellType type = CellType::ctNone;
+        CellPlayer player = CellPlayer::cpNone;
     };
 }
