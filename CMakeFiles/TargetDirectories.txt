@@ -1,3 +1,0 @@
-/home/gnom/Code/Mipt/tp/tp_game/CMakeFiles/rebuild_cache.dir
-/home/gnom/Code/Mipt/tp/tp_game/CMakeFiles/edit_cache.dir
-/home/gnom/Code/Mipt/tp/tp_game/CMakeFiles/Game.dir
