@@ -5,29 +5,32 @@
 namespace draw {
     using std::size_t;
 
-    enum ColorScheme {
-        simple,
-        map_simple,
-        map_active,
-        menu_simple,
-        menu_active,
-        player0,
-        player1,
-        player2,
-        player3,
-        neutral,
-        damaged,
-        enviroment,
+    enum class ColorScheme {
+        simple = 0,
+        map_simple = 1,
+        map_active = 2,
+        menu_simple = 3,
+        menu_active = 4,
+        player0 = 5,
+        player1 = 6,
+        player2 = 7,
+        player3 = 8,
+        neutral = 9,
+        damaged = 10,
+        enviroment = 11,
     };
 
-    enum Cell {
+    enum class Cell {
         blank = ' ',
         menu_hb = '-',
         menu_vb = '|',
         menu_c = ' ',
         field = '.',
         mountain = '^',
-        unit = '#'
+        unit = '#',
+        gold = 'G',
+        iron = 'I',
+        tech = 'T'
     };
 
     void begin();
@@ -40,6 +43,9 @@ namespace draw {
 
     void drawCh(size_t x, size_t y,
         Cell cell, ColorScheme colorScheme = ColorScheme::simple);
+
+    void drawKey(size_t x, size_t y,
+        char key, ColorScheme colorScheme = ColorScheme::simple);
 
     // void setxy(uint32_t x, uint32_t y);
 

@@ -3,7 +3,6 @@
 #include "input.hpp"
 
 namespace input {
-
     bool stopValue = false;
 
     void begin() {
