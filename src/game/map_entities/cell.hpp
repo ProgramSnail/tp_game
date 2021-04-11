@@ -1,7 +1,7 @@
 #pragma once
 
 namespace map {
-    enum CellType { // needed to choose final types
+    enum class CellType { // needed to choose final types
         ctNone,
         ctUnit,
         ctWeapon,
@@ -9,7 +9,7 @@ namespace map {
         ctMoutain
     };
 
-    enum CellPlayer {
+    enum class CellPlayer {
         cpNone,
         cpPlayer0,
         cpPlayer1,

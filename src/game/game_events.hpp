@@ -1,7 +1,7 @@
 #include <vector>
 #include <functional>
 #include <string>
-#include <map>
+#include <unordered_map>
 
 #pragma once
 
@@ -15,9 +15,8 @@ namespace events {
     public:
         EventId() = default;
 
-        EventId(std::string name) : name(name) {
-            nameHash = std::hash<std::string>{}(name);
-        }
+        EventId(std::string name) : name(name),
+            nameHash(std::hash<std::string>{}(name)) {}
 
         bool operator==(const EventId& eId) const {
             return nameHash == eId.nameHash && name == eId.name;
@@ -32,7 +31,7 @@ namespace events {
     private:
         using T = int;
 
-        std::map<std::string, T> data;
+        std::unordered_map<std::string, T> data;
 
     public:
         EventData() {}
@@ -100,7 +99,7 @@ namespace events {
 
     class EventCenter {
     private:
-        std::map<EventId, std::vector<EventHandler>> handlers;
+        std::unordered_map<EventId, std::vector<EventHandler>> handlers;
     public:
         void addEventHandler(const EventHandler& handler) {
             handlers[handler.getEventId()].push_back(handler);

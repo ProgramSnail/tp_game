@@ -8,9 +8,13 @@
 namespace unit {
     class Unit {
     private:
+        // parts of unit, that do something
         std::vector<Module> modules;
-        std::vector<MemoryElem> memory;
-        map::GameMap map;
+        
+        // memory, help modules communicate and handle events
+        std::vector<int> memory;
+        
+        map::GameMap* map;
     public:
         Unit();
 
