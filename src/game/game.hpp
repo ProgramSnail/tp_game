@@ -16,4 +16,7 @@ private:
 public:
     // may be more than one map sizes ??
     Game(size_t playersNum, std::pair<size_t, size_t> sz);
+    void begin();
+    void step();
+    void end();
 };

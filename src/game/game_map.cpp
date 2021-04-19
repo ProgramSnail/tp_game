@@ -45,4 +45,8 @@ namespace map {
         }
         return way;
     }
+
+    void generate() {
+        
+    }
 }

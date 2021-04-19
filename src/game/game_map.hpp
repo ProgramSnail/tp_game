@@ -26,5 +26,6 @@ namespace map {
             std::pair<size_t, size_t> start,
             std::pair<size_t, size_t> end);
 
+        void generate();
     };
 }

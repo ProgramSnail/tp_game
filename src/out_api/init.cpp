@@ -6,10 +6,13 @@
 #include "input.hpp"
 
 namespace init {
+    WINDOW* stdscr;
+
     void begin() {
-        initscr();
+        stdscr = initscr();
         noecho();
         curs_set(false);
+        nodelay(stdscr, true);
         draw::begin();
         input::begin();
     }
