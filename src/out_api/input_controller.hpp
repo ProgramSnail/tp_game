@@ -8,5 +8,5 @@ class InputController {
 private:
 
 public:
-    InputController()
+    InputController();
 };
