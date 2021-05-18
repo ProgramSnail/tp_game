@@ -2,23 +2,26 @@
 
 namespace map {
     enum class CellType {
-        ctNone,
-        ctUnit,
-        ctWeapon,
-        ctForest,
-        ctMoutain
+        none,
+        unit,
+        weapon,
+        forest,
+        moutain
     };
 
     enum class CellPlayer {
-        cpNone,
-        cpPlayer0,
-        cpPlayer1,
-        cpPlayer2,
-        cpPlayer3
+        none,
+        player0,
+        player1,
+        player2,
+        player3
     };
 
     struct Cell {
-        CellType type = CellType::ctNone;
-        CellPlayer player = CellPlayer::cpNone;
+        CellType type;
+        CellPlayer player;
+        Cell(CellType type = CellType::none,
+                CellPlayer player = CellPlayer::none) 
+            : type(type), player(player) {}
     };
 }

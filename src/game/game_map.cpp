@@ -1,7 +1,7 @@
 #include "game_map.hpp"
 
 namespace map {
-    GameMap::GameMap(std::pair<size_t, size_t> sz) : 
+    GameMap::GameMap(Coord sz) : 
         cells(sz.first, std::vector<Cell>(sz.second)) {}
 
     size_t GameMap::addAction(const Action& action) {
@@ -18,24 +18,39 @@ namespace map {
     }
 
     void GameMap::removeAction(size_t id) {
-        actions[id] = Action(); // empty action;
+        actions[id] = Action();
         freeActionsId.push_back(id);
     }
 
-    const Cell& GameMap::getCell(std::pair<size_t, size_t> pos) {
+    const Cell& GameMap::getCell(Coord pos) {
         return cells[pos.first][pos.second];
     }
 
-    void GameMap::setCell(std::pair<size_t, size_t> pos,
-        const Cell& cell)  {
+    void GameMap::setCell(Coord pos, const Cell& cell)  {
             cells[pos.first][pos.second] = cell;
     }
 
-    std::vector<std::pair<size_t, size_t>> GameMap::getWay(
-        std::pair<size_t, size_t> start,
-        std::pair<size_t, size_t> end) {
+    void GameMap::setCellBlock(Coord startPos,
+            Coord endPos, const Cell& cell) {
+        for (size_t i = startPos.first; i < endPos.first; ++i) { // ?? or <= better ??
+            for (size_t j = startPos.second; j < endPos.second; ++j) {
+                setCell({i, j}, cell);
+            }
+        }
+    }
+
+    void GameMap::eraseCell(Coord pos) {
+        setCell(pos, Cell()); 
+    }
+
+    void GameMap::eraseCellBlock(Coord startPos, Coord endPos) {
+        setCellBlock(startPos, endPos, Cell());
+    }
+
+    std::vector<GameMap::Coord> GameMap::getWay(
+        Coord start, Coord end) {
         // now only easiest realisation, then may be A*
-        std::vector<std::pair<size_t, size_t>> way;
+        std::vector<Coord> way;
         for (size_t i = start.first; i < end.first;
             start.first < end.first ? ++i : --i) {
             for (size_t j = start.second; i < end.second;
@@ -46,7 +61,11 @@ namespace map {
         return way;
     }
 
-    void generate() {
-        
+    void GameMap::generate() {
+        for (size_t i = 0; cells.size(); ++i) {
+            for (size_t j = 0; j < cells[i].size(); ++i) {
+                cells[i][j] = Cell();
+            } 
+        }
     }
 }

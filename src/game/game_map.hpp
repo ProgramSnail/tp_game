@@ -6,25 +6,33 @@
 
 namespace map {
     class GameMap {
+    public:
+        using Coord = std::pair<size_t, size_t>;
     private:
         std::vector<std::vector<Cell> > cells;
         std::vector<Action> actions;
         std::vector<size_t> freeActionsId;
     public:
-        GameMap(std::pair<size_t, size_t> sz);
+        GameMap(Coord sz);
         
         size_t addAction(const Action& action);
 
         void removeAction(size_t id);
 
-        const Cell& getCell(std::pair<size_t, size_t> pos);
+        const Cell& getCell(Coord pos);
 
-        void setCell(std::pair<size_t, size_t> pos,
-            const Cell& cell);
+        void setCell(Coord pos, const Cell& cell);
 
-        std::vector<std::pair<size_t, size_t>> getWay(
-            std::pair<size_t, size_t> start,
-            std::pair<size_t, size_t> end);
+        void setCellBlock(Coord startPos,
+                Coord endPos, const Cell& cell);
+
+        void eraseCell(Coord pos);
+
+        void eraseCellBlock(Coord startPos, Coord endPos);
+
+        std::vector<Coord> getWay(
+            Coord start,
+            Coord end);
 
         void generate();
     };

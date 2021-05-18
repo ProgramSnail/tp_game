@@ -29,7 +29,6 @@ set(GameMainSource
 
 set(GameUnitSource
         src/game/unit/module_builder.cpp
-        src/game/unit/unit_builder.cpp
         src/game/unit/unit_module.cpp
         src/game/unit/unit.cpp)
 
