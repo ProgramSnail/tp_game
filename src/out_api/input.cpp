@@ -14,7 +14,7 @@ namespace input {
     }
 
     void step() {
-        
+        lastInput = getch();
     }
 
     void end() {

@@ -1,24 +1,27 @@
 #pragma once
 
 namespace map {
-    enum class CellType { // needed to choose final types
-        ctNone,
-        ctUnit,
-        ctWeapon,
-        ctForest,
-        ctMoutain
+    enum class CellType {
+        none,
+        unit,
+        weapon,
+        forest,
+        moutain
     };
 
     enum class CellPlayer {
-        cpNone,
-        cpPlayer0,
-        cpPlayer1,
-        cpPlayer2,
-        cpPlayer3
+        none,
+        player0,
+        player1,
+        player2,
+        player3
     };
 
     struct Cell {
         CellType type;
-        // int ??speed??; // speed when move inside
+        CellPlayer player;
+        Cell(CellType type = CellType::none,
+                CellPlayer player = CellPlayer::none) 
+            : type(type), player(player) {}
     };
 }
